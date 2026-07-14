@@ -2,9 +2,10 @@ name: Build Geode Mod
 
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,12 +15,17 @@ jobs:
         config:
           - name: Windows
             os: windows-latest
+            target: Win64
 
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Build the mod
+      - name: Build Mod
         uses: geode-sdk/build-geode-mod@main
+        with:
+          sdk: ${{ env.GEODE_SDK }}
+          target: ${{ matrix.config.target }}
