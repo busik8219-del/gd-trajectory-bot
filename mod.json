@@ -1,0 +1,12 @@
+{
+    "geode": "3.0.0",
+    "id": "mygdbot.trajectory_ai",
+    "name": "GD Trajectory AI Bot",
+    "developer": "YourNickname",
+    "version": "1.0.0",
+    "description": "Бот, который предсказывает траекторию кубика и автоматически прыгает перед препятствиями.",
+    "dependencies": [],
+    "resources": {
+        "sprites": []
+    }
+}
